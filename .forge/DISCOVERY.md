@@ -3,7 +3,7 @@
 ## What exists
 - 11 forge command markdown files in `~/.claude/commands/forge/` (~54KB total)
 - An empty `forge-learnings.md` global inbox in `~/.claude/`
-- An empty project directory at `the project root/`
+- An empty project directory (the repo root)
 - A prior plan file at `~/.claude/plans/fluffy-wiggling-lovelace.md` (from an earlier session)
 
 ## What's requested

@@ -8,7 +8,7 @@ Copy all 11 forge command markdown files from `~/.claude/commands/forge/` into t
 
 ### Prerequisites
 - Source files exist at `~/.claude/commands/forge/` (11 .md files)
-- Repo directory exists at `the project root/`
+- Repo directory exists (the project root)
 
 ---
 
