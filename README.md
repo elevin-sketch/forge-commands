@@ -3,16 +3,10 @@
 A structured workflow system for [Claude Code](https://claude.ai/claude-code).
 
 ```
-┌───────────────────────────────────────────────────┐
-│ CORE WORKFLOW                                     │
-│ decompose --> plan --> build --> verify            │
-├────────────────────────┬──────────────────────────┤
-│ EFFICIENCY             │ PROJECT MANAGEMENT        │
-│ quick · loop           │ status · reset            │
-├────────────────────────┴──────────────────────────┤
-│ EVOLUTION                                         │
-│ learn --> reflect --> evolve                       │
-└───────────────────────────────────────────────────┘
+CORE WORKFLOW       decompose --> plan --> build --> verify
+EFFICIENCY          quick, loop
+PROJECT MANAGEMENT  status, reset
+EVOLUTION           learn --> reflect --> evolve
 ```
 
 Claude Code is powerful for single-session tasks, but complex projects spanning multiple sessions lose coherence. Context resets, decisions get re-made, and progress becomes difficult to track. Forge addresses this by providing a structured workflow — 11 slash commands that manage the full lifecycle of a multi-component project.
