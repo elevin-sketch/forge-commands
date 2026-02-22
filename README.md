@@ -9,7 +9,7 @@ A structured workflow system for [Claude Code](https://claude.ai/claude-code). F
 ## Quick Install
 
 ```bash
-git clone <repo-url> ~/forge-commands
+git clone https://github.com/elevin-sketch/forge-commands.git ~/forge-commands
 cd ~/forge-commands
 ./install.sh
 ```
@@ -20,7 +20,7 @@ The install script creates a symlink from `~/.claude/commands/forge` to the repo
 
 ```bash
 # Clone the repo
-git clone <repo-url> ~/forge-commands
+git clone https://github.com/elevin-sketch/forge-commands.git ~/forge-commands
 
 # Create the symlink
 ln -s ~/forge-commands/commands/forge ~/.claude/commands/forge
