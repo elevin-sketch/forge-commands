@@ -5,7 +5,7 @@ How the forge commands connect into a complete development workflow.
 ## The Pipeline
 
 ```
-/forge:decompose ──> /forge:plan ──> /forge:build ──> /forge:verify
+Your idea ──> /forge:decompose ──> /forge:plan ──> /forge:build ──> /forge:verify
        │                                                    │
        │            Alternatives:                           │
        │            ├── /forge:quick (small tasks)          │
@@ -21,6 +21,15 @@ Supporting commands used at any point:
 - `/forge:reset` — go back and replan
 
 ## Phase by Phase
+
+### 0. Start with an idea
+
+Before running any forge commands, you need a requirement — even a rough one. This can be:
+- A few sentences you wrote yourself ("I want a bookmark manager with user auth and collections")
+- The output of Claude Code's built-in plan mode, which you then feed into decompose
+- A design doc, spec, or conversation summary
+
+Forge doesn't generate the initial idea — it structures and executes it. The input to `/forge:decompose` can range from a single sentence to a multi-page plan; decompose will ask clarifying questions either way.
 
 ### 1. Decompose — Break it down
 
