@@ -12,4 +12,4 @@
 **Files modified:** commands/forge/verify.md, commands/forge/build.md, commands/forge/decompose.md
 **Tests:** 3 passing, 3 total (no project-specific terms, build.md generalized, decompose.md multi-language)
 **Deviations from plan:** none
-**Commit:** pending
+**Commit:** 38b6b54

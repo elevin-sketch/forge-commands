@@ -12,4 +12,4 @@
 **Files modified:** none
 **Tests:** 2 passing, 2 total (executable, -L symlink check present)
 **Deviations from plan:** none
-**Commit:** pending
+**Commit:** 8551f91
