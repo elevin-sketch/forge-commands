@@ -24,7 +24,7 @@ Create 6 documentation files in dependency order: CONCEPTS (defines terms) → C
 
 ---
 
-### Section 2: COMMANDS.md
+### Section 2: COMMANDS.md ✅ 2026-02-22
 **Goal:** Structured reference card for all 11 commands
 **Files to create:**
 - `docs/COMMANDS.md` — consistent format per command: purpose, usage, arguments, produces, reads, modes, example
