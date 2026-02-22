@@ -8,7 +8,7 @@
 |---|-----------|--------|------|-------|
 | 01 | command-files | verified | command-files-PLAN.md | 2/2 sections complete |
 | 02 | install-mechanism | verified | install-mechanism-PLAN.md | 2/2 sections complete |
-| 03 | sample-artifacts | built | sample-artifacts-PLAN.md | 3/3 sections complete |
+| 03 | sample-artifacts | verified | sample-artifacts-PLAN.md | 3/3 sections complete |
 | 04 | documentation | verified | documentation-PLAN.md | 6/6 sections complete |
 
 ### Build order
