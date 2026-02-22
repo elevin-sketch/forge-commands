@@ -86,6 +86,16 @@ For the mental model behind these concepts, see [docs/CONCEPTS.md](docs/CONCEPTS
 
 The [`templates/sample-forge/`](templates/sample-forge/) directory contains annotated examples of every artifact Forge produces, using a fictional "Bookmark API" project. Open these files to see exactly what your `.forge/` directory will look like.
 
+## Acknowledgments
+
+Forge draws heavily on ideas from three Claude Code workflow systems:
+
+- **[Deep Trilogy](https://github.com/casualjim/deep-trinity)** — the decompose → plan → build pipeline, interactive mode with user approval gates, and the concept of goal-backward verification
+- **[GSD](https://github.com/coleam00/gsd)** — cruise mode (auto-advance on pass, stop on fail), atomic commits per task, and structured state tracking across sessions
+- **[Ralph Loop](https://github.com/jasonmlong/ralph-loop)** — loop mode's fully autonomous iteration, skip-on-failure resilience, and the philosophy of letting the agent run unsupervised for mechanical work
+
+Forge combines these approaches into a single command set with a shared state model and a learning system that improves the commands over time.
+
 ## Uninstall
 
 ```bash
