@@ -80,7 +80,7 @@ Create 6 documentation files in dependency order: CONCEPTS (defines terms) → C
 
 ---
 
-### Section 6: CHANGELOG.md
+### Section 6: CHANGELOG.md ✅ 2026-02-22
 **Goal:** Version history starting at v1.0.0
 **Files to create:**
 - `CHANGELOG.md` — initial v1.0.0 entry listing all 11 commands and the install mechanism

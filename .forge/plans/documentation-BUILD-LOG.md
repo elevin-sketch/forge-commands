@@ -33,4 +33,11 @@
 **Files modified:** none
 **Tests:** 4 passing, 4 total (install.sh referenced, 16 forge refs >= 11, LICENSE exists, no /Users/ paths)
 **Deviations from plan:** none
-**Commit:** pending
+**Commit:** c3b2bbf
+
+### Section 6: CHANGELOG.md — ✅ DONE 2026-02-22
+**Files created:** CHANGELOG.md
+**Files modified:** none
+**Tests:** 2 passing, 2 total (v1.0.0 present, 11 forge: references >= 11)
+**Deviations from plan:** none
+**Commit:** 598d646
