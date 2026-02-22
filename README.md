@@ -2,6 +2,19 @@
 
 A structured workflow system for [Claude Code](https://claude.ai/claude-code).
 
+```
+┌─────────────────────────────────────────────────────────────┐
+│                      Core Workflow                          │
+│   decompose ──> plan ──> build ──> verify                   │
+├─────────────────────┬───────────────────────────────────────┤
+│     Efficiency      │        Project Management             │
+│   quick  ·  loop    │        status  ·  reset               │
+├─────────────────────┴───────────────────────────────────────┤
+│                       Evolution                             │
+│              learn ──> reflect ──> evolve                    │
+└─────────────────────────────────────────────────────────────┘
+```
+
 Claude Code is powerful for single-session tasks, but complex projects spanning multiple sessions lose coherence. Context resets, decisions get re-made, and progress becomes difficult to track. Forge addresses this by providing a structured workflow — 11 slash commands that manage the full lifecycle of a multi-component project.
 
 The core pipeline follows a deliberate sequence: decompose a requirement into components, plan each one with concrete acceptance criteria, build section by section with tests and atomic commits, then verify the result against the original spec. Every artifact — specs, plans, build logs, verification reports — is written to a `.forge/` directory in your project as readable markdown, committed to git alongside your code. This is what gives sessions continuity. When context resets or a new session starts, `/forge:status` reconstructs the full picture from these files.
