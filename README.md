@@ -1,6 +1,16 @@
 # Forge Commands
 
-A structured workflow system for [Claude Code](https://claude.ai/claude-code). Forge gives you 11 slash commands that turn vague requirements into decomposed components, detailed plans, tested implementations, and verified builds — with persistent project memory that learns from every session.
+A structured workflow system for [Claude Code](https://claude.ai/claude-code).
+
+Claude Code is powerful for single-session tasks, but complex projects spanning multiple sessions lose coherence. Context resets, decisions get re-made, and progress becomes difficult to track. Forge addresses this by providing a structured workflow — 11 slash commands that manage the full lifecycle of a multi-component project.
+
+The core pipeline follows a deliberate sequence: decompose a requirement into components, plan each one with concrete acceptance criteria, build section by section with tests and atomic commits, then verify the result against the original spec. Every artifact — specs, plans, build logs, verification reports — is written to a `.forge/` directory in your project as readable markdown, committed to git alongside your code. This is what gives sessions continuity. When context resets or a new session starts, `/forge:status` reconstructs the full picture from these files.
+
+Three execution modes let you calibrate autonomy to the task. Interactive mode pauses for approval at each step. Cruise mode auto-advances when tests pass and stops on failure. Loop mode runs fully unsupervised, skipping failures and reporting results at the end. Separate commands handle tasks outside the main pipeline: `/forge:quick` for small changes that don't need full planning, `/forge:loop` for mechanical bulk operations across a codebase.
+
+A built-in learning system captures institutional knowledge. Project-level learnings (gotchas, conventions, architectural decisions) persist in `.forge/AGENTS.md` and are read by every subsequent command. Global observations about the forge workflow itself are collected by `/forge:reflect` and promoted into updated command definitions by `/forge:evolve` — the tools improve through use.
+
+The design draws on three existing Claude Code workflow systems: [Deep Trilogy](https://github.com/casualjim/deep-trinity)'s decompose-plan-build pipeline and goal-backward verification, [GSD](https://github.com/coleam00/gsd)'s structured state tracking and cruise-mode execution, and [Ralph Loop](https://github.com/jasonmlong/ralph-loop)'s autonomous iteration and skip-on-failure resilience. Forge combines these into a unified command set with shared state that works across sessions and context windows.
 
 ## Prerequisites
 
@@ -85,16 +95,6 @@ For the mental model behind these concepts, see [docs/CONCEPTS.md](docs/CONCEPTS
 ## Sample Artifacts
 
 The [`templates/sample-forge/`](templates/sample-forge/) directory contains annotated examples of every artifact Forge produces, using a fictional "Bookmark API" project. Open these files to see exactly what your `.forge/` directory will look like.
-
-## Acknowledgments
-
-Forge draws heavily on ideas from three Claude Code workflow systems:
-
-- **[Deep Trilogy](https://github.com/casualjim/deep-trinity)** — the decompose → plan → build pipeline, interactive mode with user approval gates, and the concept of goal-backward verification
-- **[GSD](https://github.com/coleam00/gsd)** — cruise mode (auto-advance on pass, stop on fail), atomic commits per task, and structured state tracking across sessions
-- **[Ralph Loop](https://github.com/jasonmlong/ralph-loop)** — loop mode's fully autonomous iteration, skip-on-failure resilience, and the philosophy of letting the agent run unsupervised for mechanical work
-
-Forge combines these approaches into a single command set with a shared state model and a learning system that improves the commands over time.
 
 ## Uninstall
 
