@@ -6,7 +6,7 @@
 ### Components
 | # | Component | Status | Plan | Notes |
 |---|-----------|--------|------|-------|
-| 01 | command-files | built | command-files-PLAN.md | 2/2 sections complete |
+| 01 | command-files | verified | command-files-PLAN.md | 2/2 sections complete |
 | 02 | install-mechanism | built | install-mechanism-PLAN.md | 2/2 sections complete |
 | 03 | sample-artifacts | built | sample-artifacts-PLAN.md | 3/3 sections complete |
 | 04 | documentation | verified | documentation-PLAN.md | 6/6 sections complete |
