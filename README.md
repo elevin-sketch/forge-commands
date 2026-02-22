@@ -5,13 +5,13 @@ A structured workflow system for [Claude Code](https://claude.ai/claude-code).
 ```
 ┌───────────────────────────────────────────────────┐
 │ CORE WORKFLOW                                     │
-│ decompose ──▶ plan ──▶ build ──▶ verify           │
+│ decompose --> plan --> build --> verify            │
 ├────────────────────────┬──────────────────────────┤
 │ EFFICIENCY             │ PROJECT MANAGEMENT        │
 │ quick · loop           │ status · reset            │
 ├────────────────────────┴──────────────────────────┤
 │ EVOLUTION                                         │
-│ learn ──▶ reflect ──▶ evolve                      │
+│ learn --> reflect --> evolve                       │
 └───────────────────────────────────────────────────┘
 ```
 
