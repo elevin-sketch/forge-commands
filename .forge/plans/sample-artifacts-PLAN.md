@@ -25,7 +25,7 @@ Create 8 annotated sample files in `templates/sample-forge/` using a "Bookmark A
 
 ---
 
-### Section 2: Spec files
+### Section 2: Spec files ✅ 2026-02-22
 **Goal:** Create the component overview and an example component spec
 **Files to create:**
 - `templates/sample-forge/specs/OVERVIEW.md` — dependency diagram (ASCII) + build order for the 4 Bookmark API components
