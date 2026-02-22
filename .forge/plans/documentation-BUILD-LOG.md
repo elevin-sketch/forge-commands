@@ -12,4 +12,11 @@
 **Files modified:** none
 **Tests:** 2 passing, 2 total (11 command sections, no /Users/ paths)
 **Deviations from plan:** none
+**Commit:** 37c5472
+
+### Section 3: WORKFLOW.md — ✅ DONE 2026-02-22
+**Files created:** docs/WORKFLOW.md
+**Files modified:** none
+**Tests:** 3 passing, 3 total (has ──> arrows, has walkthrough, no /Users/ paths)
+**Deviations from plan:** none
 **Commit:** pending

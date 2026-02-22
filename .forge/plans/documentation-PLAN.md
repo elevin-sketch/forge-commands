@@ -37,7 +37,7 @@ Create 6 documentation files in dependency order: CONCEPTS (defines terms) → C
 
 ---
 
-### Section 3: WORKFLOW.md
+### Section 3: WORKFLOW.md ✅ 2026-02-22
 **Goal:** Narrative guide showing how the commands connect into a complete workflow
 **Files to create:**
 - `docs/WORKFLOW.md` — ASCII pipeline diagram, each phase explained, abbreviated worked example, the learning loop, when NOT to use forge
