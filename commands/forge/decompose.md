@@ -98,14 +98,26 @@ Create or update `.forge/STATE.md`:
 ...
 ```
 
-If the project doesn't have a `.gitignore`, create one with sensible defaults:
+If the project doesn't have a `.gitignore`, create one with sensible defaults for the project's language:
 ```
+# General
+.env
+*.log
+.DS_Store
+
+# Python
 __pycache__/
 *.pyc
 *.egg-info/
-dist/
-build/
 .pytest_cache/
+
+# Node
+node_modules/
+dist/
+
+# Build output
+build/
+target/
 ```
 
 Also create `.forge/AGENTS.md` if it doesn't exist:

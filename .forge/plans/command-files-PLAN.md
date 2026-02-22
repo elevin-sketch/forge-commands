@@ -35,7 +35,7 @@ Copy all 11 forge command markdown files from `~/.claude/commands/forge/` into t
 
 ---
 
-### Section 2: Scrub and generalize
+### Section 2: Scrub and generalize ✅ 2026-02-22
 **Goal:** Remove project-specific content and generalize language assumptions across 3 files
 **Files to modify:**
 - `commands/forge/verify.md` — Replace Step 2.5 Playwright section (lines 41-60) with a generic UI smoke test pattern. Remove OpenLayers, SIDE_COLOR, timeCompression references. Keep the concept (visual verification for UI-facing components) but make it tool/framework agnostic.

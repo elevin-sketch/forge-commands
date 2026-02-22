@@ -38,26 +38,20 @@ For items that fail or partially pass, diagnose the issue:
 - Is it a test gap (the feature works but isn't tested)?
 - Is it an integration issue (works in isolation, fails when connected)?
 
-### Step 2.5: Playwright visual smoke test (if UI-facing)
+### Step 2.5: Visual smoke test (if UI-facing)
 
-If the component touches anything user-facing (scenarios, map layers, UI controls, unit rendering, toolbar changes), run a Playwright smoke test:
+If the component touches anything user-facing (pages, components, layouts, interactive controls), run a visual smoke test:
 
-1. Check if a dev server is running (try localhost:3000 and localhost:3001)
-2. If not running, start one with `npm run standalone` in the background
-3. Use Python Playwright (installed in the conda env) to:
-   - Launch headless Chromium
-   - Navigate to the app
-   - Load each scenario that could be affected (use `button[aria-label="Load Scenario"]` to open menu)
-   - Click Play (`button[aria-label="Play Scenario"]`), wait 3 seconds
-   - Take a screenshot and check for white screen / rendering issues
-   - Capture `page.on('pageerror')` and `page.on('console', type='error')` — report any errors
-4. Include results in the verification report under a "Visual Smoke Test" section
-5. If the component is pure backend/engine logic (e.g., training-export, Python-only components), skip this step and note "N/A — no UI impact"
+1. Check if a dev server is running; if not, start one
+2. Using your project's browser testing tool (Playwright, Cypress, Puppeteer, or manual inspection):
+   - Navigate to affected pages/views
+   - Verify the UI renders without blank screens or layout breakage
+   - Check the browser console for errors (`pageerror`, `console.error`)
+   - Take screenshots if automated tooling is available
+3. Include results in the verification report under a "Visual Smoke Test" section
+4. If the component is pure backend/library logic with no UI impact, skip this step and note "N/A — no UI impact"
 
-Key conventions to verify:
-- OpenLayers uses [lon, lat] coordinate order, NOT [lat, lon]
-- Valid timeCompression values: [1, 2, 4, 8, 100]
-- SIDE_COLOR enum uses "GRAY" not "GREY"
+If your project has specific UI conventions (coordinate systems, enum values, color constants), add them to `.forge/AGENTS.md` so future verifications check them automatically.
 
 ### Step 3: Check for gaps the plan missed
 

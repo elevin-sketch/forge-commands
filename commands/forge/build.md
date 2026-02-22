@@ -135,7 +135,7 @@ Include only the files created/modified in this section plus updated `.forge/` s
 
 Log the commit hash in BUILD-LOG.md for easy rollback reference.
 
-Ensure `.gitignore` excludes `__pycache__/`, `*.pyc`, and `*.egg-info/` before committing.
+Ensure `.gitignore` excludes language-appropriate build artifacts before committing (e.g., `__pycache__/` for Python, `node_modules/` for Node, `target/` for Rust).
 
 ## Rollback guidance
 

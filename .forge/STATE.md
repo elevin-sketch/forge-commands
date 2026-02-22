@@ -6,7 +6,7 @@
 ### Components
 | # | Component | Status | Plan | Notes |
 |---|-----------|--------|------|-------|
-| 01 | command-files | building (1/2 sections complete) | command-files-PLAN.md | 2 sections: copy + scrub |
+| 01 | command-files | built | command-files-PLAN.md | 2/2 sections complete |
 | 02 | install-mechanism | spec-ready | — | install.sh, uninstall.sh, template |
 | 03 | sample-artifacts | spec-ready | — | Annotated example .forge/ directory |
 | 04 | documentation | spec-ready | — | README + 4 guides + CHANGELOG |
