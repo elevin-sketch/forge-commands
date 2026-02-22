@@ -5,4 +5,11 @@
 **Files modified:** none
 **Tests:** 4 passing, 4 total (executable, ln -s present, .claude present, template exists)
 **Deviations from plan:** none
+**Commit:** 32d0d96
+
+### Section 2: Uninstall script — ✅ DONE 2026-02-22
+**Files created:** uninstall.sh
+**Files modified:** none
+**Tests:** 2 passing, 2 total (executable, -L symlink check present)
+**Deviations from plan:** none
 **Commit:** pending

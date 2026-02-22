@@ -7,7 +7,7 @@
 | # | Component | Status | Plan | Notes |
 |---|-----------|--------|------|-------|
 | 01 | command-files | built | command-files-PLAN.md | 2/2 sections complete |
-| 02 | install-mechanism | building (1/2 sections complete) | install-mechanism-PLAN.md | 2 sections: install + uninstall |
+| 02 | install-mechanism | built | install-mechanism-PLAN.md | 2/2 sections complete |
 | 03 | sample-artifacts | spec-ready | — | Annotated example .forge/ directory |
 | 04 | documentation | spec-ready | — | README + 4 guides + CHANGELOG |
 

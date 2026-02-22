@@ -26,7 +26,7 @@ Create install.sh and uninstall.sh scripts that manage a directory-level symlink
 
 ---
 
-### Section 2: Uninstall script
+### Section 2: Uninstall script ✅ 2026-02-22
 **Goal:** A working uninstall.sh that removes the symlink safely
 **Files to create:**
 - `uninstall.sh` — the uninstall script (executable)
