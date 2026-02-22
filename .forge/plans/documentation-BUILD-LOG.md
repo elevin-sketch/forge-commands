@@ -19,4 +19,11 @@
 **Files modified:** none
 **Tests:** 3 passing, 3 total (has ──> arrows, has walkthrough, no /Users/ paths)
 **Deviations from plan:** none
+**Commit:** 121448f
+
+### Section 4: CUSTOMIZING.md — ✅ DONE 2026-02-22
+**Files created:** docs/CUSTOMIZING.md
+**Files modified:** none
+**Tests:** 3 passing, 3 total (ARGUMENTS present, Meta present, no /Users/ paths)
+**Deviations from plan:** none
 **Commit:** pending
