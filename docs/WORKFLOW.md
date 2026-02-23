@@ -9,7 +9,8 @@ Your idea ──> /forge:decompose ──> /forge:plan ──> /forge:build ─�
        │                                                    │
        │            Alternatives:                           │
        │            ├── /forge:quick (small tasks)          │
-       │            └── /forge:loop (mechanical tasks)      │
+       │            ├── /forge:loop (mechanical tasks)      │
+       │            └── /forge:probe (exploration)          │
        │                                                    │
        └── /forge:reflect ──> /forge:evolve ────────────────┘
                 (learning loop)
@@ -132,6 +133,19 @@ Loop creates a task list, processes each item, commits individually, and reports
 /forge:loop add unit tests for every untested function in src/models/ --batch 10
 ```
 
+### /forge:probe — Explore the unknown
+
+For tasks where you don't know what you'll find — feature spikes, architecture exploration, bug investigation with unknown scope:
+- "Can we make X work with Y?"
+- "How does this pipeline actually work?"
+- "Why does this metric never update?"
+
+Probe produces a structured discovery report with numbered findings, committed fixes, and recommendations. Quick tasks that become exploratory auto-escalate to probe mode.
+
+```
+/forge:probe why batch queries silently drop after the first result
+```
+
 ## The Learning Loop
 
 Forge has a built-in feedback system for improving the commands themselves:
@@ -171,7 +185,7 @@ Forge adds structure. Not every task needs structure.
 |-----------|------------|
 | One-line fix, typo | Just make the change directly |
 | Quick debugging | Normal conversation with Claude |
-| Exploring/prototyping | No tools needed — just try things |
+| Exploring/investigating | `/forge:probe` (structured exploration) |
 | Single small feature | `/forge:quick` (lightweight path) |
 | Bulk mechanical edits | `/forge:loop` (skip the full pipeline) |
 

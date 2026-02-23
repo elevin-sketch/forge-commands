@@ -5,11 +5,11 @@ A structured workflow system for [Claude Code](https://claude.ai/claude-code).
 ```
 CORE  decompose --> plan --> build --> verify
 MGMT  status, reset
-UTIL  quick, loop
+UTIL  quick, loop, probe
 EVO   learn --> reflect --> evolve
 ```
 
-Claude Code is powerful for single-session tasks, but complex projects spanning multiple sessions lose coherence. Context resets, decisions get re-made, and progress becomes difficult to track. Forge addresses this by providing a structured workflow — 11 slash commands that manage the full lifecycle of a multi-component project.
+Claude Code is powerful for single-session tasks, but complex projects spanning multiple sessions lose coherence. Context resets, decisions get re-made, and progress becomes difficult to track. Forge addresses this by providing a structured workflow — 12 slash commands that manage the full lifecycle of a multi-component project.
 
 The core pipeline follows a deliberate sequence: decompose a requirement into components, plan each one with concrete acceptance criteria, build section by section with tests and atomic commits, then verify the result against the original spec. Every artifact — specs, plans, build logs, verification reports — is written to a `.forge/` directory in your project as readable markdown, committed to git alongside your code. This is what gives sessions continuity. When context resets or a new session starts, `/forge:status` reconstructs the full picture from these files.
 
@@ -71,6 +71,7 @@ For the full walkthrough, see [docs/WORKFLOW.md](docs/WORKFLOW.md).
 | `/forge:verify` | Goal-backward verification of completed work |
 | `/forge:quick` | Fast execution for small tasks (skip the full pipeline) |
 | `/forge:loop` | Autonomous iteration for mechanical/repetitive tasks |
+| `/forge:probe` | Hypothesis-driven exploration with structured discovery reporting |
 | `/forge:status` | Check project progress and suggest next actions |
 | `/forge:reset` | Reset a component to an earlier phase |
 | `/forge:learn` | Record a learning to project memory |
@@ -95,7 +96,7 @@ For the mental model behind these concepts, see [docs/CONCEPTS.md](docs/CONCEPTS
 | Document | What it covers |
 |----------|---------------|
 | [WORKFLOW.md](docs/WORKFLOW.md) | How commands connect into a complete workflow |
-| [COMMANDS.md](docs/COMMANDS.md) | Reference card for all 11 commands |
+| [COMMANDS.md](docs/COMMANDS.md) | Reference card for all 12 commands |
 | [CONCEPTS.md](docs/CONCEPTS.md) | Mental model: .forge/ directory, STATE.md, AGENTS.md |
 | [CUSTOMIZING.md](docs/CUSTOMIZING.md) | How to fork, modify, and extend commands |
 

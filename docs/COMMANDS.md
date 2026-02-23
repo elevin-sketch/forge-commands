@@ -1,6 +1,6 @@
 # Forge Command Reference
 
-Quick reference for all 11 forge commands. For the full process details, read the command files directly in `commands/forge/`.
+Quick reference for all 12 forge commands. For the full process details, read the command files directly in `commands/forge/`.
 
 ---
 
@@ -61,6 +61,18 @@ Quick reference for all 11 forge commands. For the full process details, read th
 **Reads:** `.forge/AGENTS.md` (if exists), relevant source files
 **Modes:** None (single mode)
 **Example:** `/forge:quick fix the off-by-one error in pagination`
+
+---
+
+## /forge:probe
+
+**Purpose:** Hypothesis-driven exploration with structured discovery reporting.
+**Usage:** `/forge:probe <topic> [hypothesis]`
+**Arguments:** Topic to explore (required). Optionally include a hypothesis to test.
+**Produces:** `.forge/probes/topic-REPORT.md`, numbered commits per fix
+**Reads:** `.forge/AGENTS.md`, relevant source files
+**Modes:** None (single mode)
+**Example:** `/forge:probe why batch queries silently drop after the first result`
 
 ---
 

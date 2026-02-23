@@ -33,6 +33,23 @@ Ask: "Does this look right? Should I proceed?"
 4. If tests pass → commit with message: `forge(quick): [brief description]`
 5. If tests fail → diagnose, fix, retry (up to 2 attempts, then stop and explain)
 
+### Step 2.5: Escalation check
+
+After implementation, check whether the task has become exploratory. **Escalation signals:**
+1. You modified files outside the set identified in Step 1 (unplanned scope expansion)
+2. You went through 2+ debug cycles (run → fail → diagnose → fix → run again)
+3. You hit a root-cause chain (fixing A revealed B was broken, fixing B revealed C)
+
+If ANY signal fires:
+1. Announce: "This quick task has become exploratory — switching to probe mode."
+2. Name the probe (derive from the original task description)
+3. Retroactively number discoveries made so far
+4. Switch commit messages from `forge(quick):` to `probe([name]): fix #N —`
+5. Continue working, but now follow forge:probe Step 2 (numbered discoveries) and Step 3 (produce probe report) instead of the remaining quick steps
+6. The probe report replaces the quick summary — do NOT also produce the Step 3 quick output
+
+If no signals fire, continue with Step 3 as normal.
+
 ### Step 3: Log and update
 
 Append to `.forge/AGENTS.md` if you learned something useful (and the file exists).
@@ -55,7 +72,8 @@ If no planning docs are affected, skip this step.
 
 ## Rules
 - **Read before you write.** Always read existing files before modifying them to understand current patterns.
-- If the task turns out to be larger than expected (>3 files or >200 lines), stop and suggest the user run `/forge:plan` instead.
+- If the task turns out to be larger than expected (>3 files or >200 lines) AND is well-understood (not exploratory), stop and suggest the user run `/forge:plan` instead.
+- If the task becomes exploratory (see Step 2.5), auto-escalate to probe mode. Don't ask the user — just announce the transition and switch.
 - Always test. Even quick tasks get tests.
 - Always commit. Even quick tasks get atomic commits.
 

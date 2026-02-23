@@ -2,6 +2,17 @@
 
 All notable changes to Forge Commands will be documented in this file.
 
+## [1.1.0] — 2026-02-22
+
+### Added
+- `/forge:probe` — Hypothesis-driven exploration with structured discovery reporting
+- Auto-escalation from `/forge:quick` to probe mode when tasks become exploratory
+
+### Changed
+- `/forge:quick` — Added Step 2.5 escalation check (detects scope expansion, debug cycles, root-cause chains)
+- `/forge:decompose` — Added artifact isolation warning and not-additive limitation caveat
+- Updated all docs and README to reflect 12 commands (was 11)
+
 ## [1.0.0] — 2026-02-22
 
 ### Added

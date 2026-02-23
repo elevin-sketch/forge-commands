@@ -145,6 +145,8 @@ Summarize what you produced:
 - Every artifact must be a readable markdown file. The user should be able to open any file in `.forge/` and understand the project state.
 - If the user's requirement is small enough for a single component, say so and suggest they skip to `/forge:plan` directly.
 - Be honest about uncertainty. If you're unsure how to decompose something, say "I see two ways to split this" and present both options.
+- **Artifact isolation:** Before writing DISCOVERY.md or OVERVIEW.md, check if they already exist. If so, warn the user — show what the existing file was created for (topic and date) and what the new one would cover. If the new topic is unrelated to the current repo, suggest working in a separate temporary directory instead of overwriting.
+- **Known limitation — not additive.** Decompose assumes a fresh `.forge/` state. Running it again in a repo that already has components will overwrite STATE.md, OVERVIEW.md, and DISCOVERY.md, losing existing component tracking. For adding new components to an existing project, write specs manually and add them to STATE.md. For exploration, use `/forge:probe`. An "additive mode" for decompose is a future enhancement.
 
 ## Meta
 This command is iteratively improved. After executing it, briefly note any friction, ambiguity, or edge cases encountered, and suggest improvements at the end of your response.
