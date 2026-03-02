@@ -51,9 +51,84 @@ if [ -e "$TARGET" ] || [ -L "$TARGET" ]; then
         fi
         rm "$TARGET"
     else
-        # It's a real directory — back it up
-        BACKUP="$TARGET.backup.$(date +%Y%m%d%H%M%S)"
+        # It's a real directory — check for local customizations
         echo "Found existing forge commands directory (not a symlink)."
+        echo ""
+
+        # Diff each file to find customizations
+        HAS_DIFFS=false
+        for installed_file in "$TARGET"/*.md; do
+            [ -f "$installed_file" ] || continue
+            filename="$(basename "$installed_file")"
+            repo_file="$COMMANDS_SOURCE/$filename"
+
+            if [ ! -f "$repo_file" ]; then
+                echo "  LOCAL ONLY: $filename (not in repo)"
+                HAS_DIFFS=true
+            elif ! diff -q "$installed_file" "$repo_file" > /dev/null 2>&1; then
+                echo "  MODIFIED:   $filename"
+                HAS_DIFFS=true
+            fi
+        done
+
+        if [ "$HAS_DIFFS" = true ]; then
+            echo ""
+            echo "You have local customizations that differ from the repo."
+            echo "Options:"
+            echo "  [d] Show diffs for each modified file"
+            echo "  [b] Back up and proceed (customizations saved, not merged)"
+            echo "  [a] Abort (keep current setup, don't install)"
+            read -rp "Choose [d/b/a]: " reply
+
+            if [[ "$reply" =~ ^[Dd]$ ]]; then
+                for installed_file in "$TARGET"/*.md; do
+                    [ -f "$installed_file" ] || continue
+                    filename="$(basename "$installed_file")"
+                    repo_file="$COMMANDS_SOURCE/$filename"
+
+                    if [ ! -f "$repo_file" ]; then
+                        echo ""
+                        echo "=== $filename (LOCAL ONLY — not in repo) ==="
+                        echo "This file exists in your install but not in the repo."
+                        read -rp "  Copy into repo? [y/N] " copy_reply
+                        if [[ "$copy_reply" =~ ^[Yy]$ ]]; then
+                            cp "$installed_file" "$repo_file"
+                            echo "  Copied to repo."
+                        fi
+                    elif ! diff -q "$installed_file" "$repo_file" > /dev/null 2>&1; then
+                        echo ""
+                        echo "=== $filename ==="
+                        diff -u "$repo_file" "$installed_file" || true
+                        echo ""
+                        echo "  These are YOUR customizations (right side) vs the repo (left side)."
+                        echo "  [k] Keep repo version (discard customizations)"
+                        echo "  [f] Fold customizations into repo"
+                        echo "  [s] Skip (deal with later)"
+                        read -rp "  Choose [k/f/s]: " file_reply
+                        if [[ "$file_reply" =~ ^[Ff]$ ]]; then
+                            cp "$installed_file" "$repo_file"
+                            echo "  Folded into repo."
+                        elif [[ "$file_reply" =~ ^[Kk]$ ]]; then
+                            echo "  Will use repo version."
+                        else
+                            echo "  Skipped."
+                        fi
+                    fi
+                done
+                echo ""
+                read -rp "Proceed with install (symlink to repo)? [y/N] " proceed_reply
+                if [[ ! "$proceed_reply" =~ ^[Yy]$ ]]; then
+                    echo "Aborted."
+                    exit 0
+                fi
+            elif [[ "$reply" =~ ^[Aa]$ ]]; then
+                echo "Aborted."
+                exit 0
+            fi
+        fi
+
+        # Back up the existing directory
+        BACKUP="$TARGET.backup.$(date +%Y%m%d%H%M%S)"
         echo "  Backing up to: $BACKUP"
         mv "$TARGET" "$BACKUP"
         echo "  Backup created."
