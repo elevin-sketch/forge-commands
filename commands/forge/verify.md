@@ -1,6 +1,6 @@
-# /forge:verify — Goal-backward verification of completed work
+# /forge:verify — Intent-driven verification of completed work
 
-You are running the VERIFY phase of the Forge workflow. Instead of checking what tasks were completed (forward verification), you check what conditions must be TRUE for the feature to actually work (backward verification). This catches gaps that task-completion tracking misses.
+You are running the VERIFY phase of the Forge workflow. Verify subsumes any testing that build already performed — re-run mechanical checks as a baseline, then go further. Your primary job is to check whether the system actually accomplishes its goal. This means confirming earlier tests still pass AND going beyond acceptance criteria — probing data flow, checking that outputs vary meaningfully, testing with real inputs, and questioning whether what was built matches what was needed. Verify is where intent meets reality.
 
 ## Input
 
@@ -60,6 +60,17 @@ Beyond the spec's acceptance criteria, check:
 - **Edge cases**: Boundary values, concurrent access, resource limits
 - **Integration seams**: Do the interfaces between this component and others actually match?
 - **Regressions**: Run the full test suite, not just this component's tests
+- **Functional inertness**: Check that key functions produce meaningfully different outputs for meaningfully different inputs. Code can satisfy test contracts with hardcoded or degenerate values — structurally correct but functionally inert. This applies regardless of build mode: autonomous builds can produce inert code silently, and interactive builds can produce it when approvals happen without deep scrutiny. Spot-check critical paths with varied inputs beyond what the tests cover.
+- **Spec-to-source fidelity**: If the component was informed by research docs, design documents, or detailed planning notes (check `.forge/plans/[component]-RESEARCH.md` or referenced documents in the spec), diff the original requirements against what was actually built. The spec's acceptance criteria are a lossy compression of the original intent — requirements can be lost at each translation step (research → spec → plan → code). Check that nothing important was dropped.
+
+### Step 3.5: Walkthrough with the user
+
+Before finalizing the report, walk through the component with the user:
+1. Explain what the component actually does in plain language (not what the spec says it does — what the code actually does)
+2. For each major decision or behavior, state what it does and why
+3. Flag anything that surprised you during verification or seems inconsistent with the component's stated purpose
+
+This step leverages the user's domain knowledge to catch design mismatches that code analysis alone cannot detect. The user may recognize that "this works correctly but isn't what I needed" — a class of issue that no test can catch.
 
 ### Step 4: Present findings
 

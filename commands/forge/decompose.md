@@ -42,6 +42,8 @@ Based on answers (user-provided or auto-resolved), identify 3-8 logical componen
 - What it produces (APIs, data, UI, etc.)
 - Rough complexity (small / medium / large)
 
+**Components aren't limited to code.** Training runs, data collection pipelines, evaluation passes, migration scripts, and other operational tasks can also be decomposed as forge components. Treating these as plannable/buildable/verifiable work — with sections, acceptance checks, and build logs — forces the same rigor that code components get. If the project includes ML or data pipelines, consider decomposing training, evaluation, and data preparation as explicit components rather than treating them as ad-hoc scripts to run after the "real" work is done.
+
 Write `.forge/specs/OVERVIEW.md` with:
 - A dependency diagram (mermaid or ASCII)
 - A recommended build order (respecting dependencies)

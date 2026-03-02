@@ -87,9 +87,14 @@ Log: `[Section N] Skeleton created: path/to/file.py`
 - Log: `[Section N] Implementation: path/to/file.py (X lines)`
 
 ### 5. Run acceptance check
-- Execute the section's acceptance check command
+- Execute the section's acceptance check command from the plan
+- Additionally, run the broader test suite for affected areas (not just the section's own tests) to catch regressions
+- If the plan doesn't specify an acceptance check, run all tests in the files you modified and their test counterparts
+- Mechanical verification — tests pass, imports resolve, no regressions — is build's responsibility. This frees verify to focus on intent and fidelity rather than re-checking basics.
 - If tests pass → section is DONE
-- If tests fail → diagnose and fix (behavior depends on mode — see above)
+- If tests fail → diagnose the root cause:
+  - If the issue clearly belongs to the feature being built → fix it
+  - If the issue originates in another feature or module → do NOT step outside and edit that code. Surface it as a gap to the user and recommend whether to address it immediately or continue building the current feature (and any subsequent features in the planned sequence) first, then circle back to the gap.
 - Log: `[Section N] Tests: PASS/FAIL — [details]`
 
 ### 6. Update artifacts
